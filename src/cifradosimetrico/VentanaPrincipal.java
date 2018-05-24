@@ -37,12 +37,15 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jRadioButtonCifrar = new javax.swing.JRadioButton();
         jLabelLlave = new javax.swing.JLabel();
         jTextFieldLlave = new javax.swing.JTextField();
+        BtnCifrar = new javax.swing.JButton();
+        LblArchivo = new javax.swing.JLabel();
+        jTextFieldLlave1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setText("Algoritmo:");
 
-        jComboBoxAlgorimo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBoxAlgorimo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "RC4", "IDEA", "AES", "DES" }));
 
         jLabelAccion.setText("Accion:");
 
@@ -52,6 +55,15 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         jLabelLlave.setText("Llave:");
 
+        BtnCifrar.setText("Cifrar");
+        BtnCifrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnCifrarActionPerformed(evt);
+            }
+        });
+
+        LblArchivo.setText("Archivo: ");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -59,29 +71,34 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addGap(138, 138, 138))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jComboBoxAlgorimo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(131, 131, 131)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jLabelAccion)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jRadioButtonCifrar)
-                                    .addComponent(jRadioButtonDecifrar))
-                                .addGap(0, 126, Short.MAX_VALUE))))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addComponent(jLabel1)
+                            .addGap(138, 138, 138))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jComboBoxAlgorimo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(131, 131, 131)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(3, 3, 3)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabelLlave)
                             .addComponent(jTextFieldLlave, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                        .addGap(94, 94, 94)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabelAccion)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(LblArchivo)
+                            .addComponent(jRadioButtonCifrar)
+                            .addComponent(jRadioButtonDecifrar)
+                            .addComponent(jTextFieldLlave1, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 25, Short.MAX_VALUE))))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(138, 138, 138)
+                .addComponent(BtnCifrar)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -99,17 +116,29 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                     .addComponent(jRadioButtonDecifrar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jRadioButtonCifrar)
-                .addGap(18, 18, 18)
-                .addComponent(jLabelLlave)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextFieldLlave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(147, Short.MAX_VALUE))
+                .addGap(24, 24, 24)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabelLlave, javax.swing.GroupLayout.PREFERRED_SIZE, 9, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextFieldLlave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(LblArchivo)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextFieldLlave1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(33, 33, 33)
+                .addComponent(BtnCifrar)
+                .addContainerGap(85, Short.MAX_VALUE))
         );
 
         jLabel1.getAccessibleContext().setAccessibleName("jLabelAlgoritmo");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void BtnCifrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCifrarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnCifrarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -147,6 +176,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtnCifrar;
+    private javax.swing.JLabel LblArchivo;
     private javax.swing.JComboBox<String> jComboBoxAlgorimo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelAccion;
@@ -154,5 +185,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JRadioButton jRadioButtonCifrar;
     private javax.swing.JRadioButton jRadioButtonDecifrar;
     private javax.swing.JTextField jTextFieldLlave;
+    private javax.swing.JTextField jTextFieldLlave1;
     // End of variables declaration//GEN-END:variables
 }
