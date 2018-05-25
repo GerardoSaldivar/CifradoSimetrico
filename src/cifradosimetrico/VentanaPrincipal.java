@@ -46,6 +46,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jLabel1.setText("Algoritmo:");
 
         jComboBoxAlgorimo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "RC4", "IDEA", "AES", "DES" }));
+        jComboBoxAlgorimo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxAlgorimoActionPerformed(evt);
+            }
+        });
 
         jLabelAccion.setText("Accion:");
 
@@ -139,6 +144,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void BtnCifrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCifrarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_BtnCifrarActionPerformed
+
+    private void jComboBoxAlgorimoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxAlgorimoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBoxAlgorimoActionPerformed
 
     /**
      * @param args the command line arguments
